@@ -16,18 +16,18 @@
 # [START run_helloworld_service]
 import os
 
-from flask import Flask, request
+from flask import Flask
 
 app = Flask(__name__)
 
 
- @app.route("/")
- def hello_bizzabo():
+@app.route("/")
+def hello_bizzabo():
     name = os.environ.get("NAME", "Bizzabo")
     return "Hey {}!".format(name)
 
- @app.route("/webhook", methods=["POST"])
- def index():
+@app.route("/webhook", methods=["POST"])
+def index():
     body = request.data
     return (body)
 
