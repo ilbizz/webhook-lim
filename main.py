@@ -26,8 +26,8 @@ app = Flask(__name__)
     name = os.environ.get("NAME", "Bizzabo")
     return "Hey {}!".format(name)
 
-@app.route("/webhook", methods=["POST"])
-def index():
+ @app.route("/webhook", methods=["POST"])
+ def index():
     body = request.data
     return (body)
 
