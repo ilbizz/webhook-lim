@@ -15,7 +15,8 @@
 # [START cloudrun_helloworld_service]
 # [START run_helloworld_service]
 import os
-
+# Imports Python standard library logging
+import logging
 from flask import Flask, request
 
 app = Flask(__name__)
@@ -29,6 +30,7 @@ def hello_bizzabo():
 @app.route("/webhook", methods=["POST"])
 def index():
     body = request.data
+    logging.warning(body)
     return (body)
 
 if __name__ == "__main__":
