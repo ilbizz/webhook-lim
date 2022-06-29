@@ -34,7 +34,7 @@ def index():
     logging.warning(body)
     publisher = pubsub_v1.PublisherClient()
     topic_path = publisher.topic_path(
-        os.environ.get("PROJECT_NAME"), os.environ.get("TOPIC_NAME")
+        os.environ.get("PROJECT_NAME"), os.environ.get("TOPIC_NAME"))
     return (body+topic_path)
 
 if __name__ == "__main__":
