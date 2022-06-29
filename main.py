@@ -20,6 +20,7 @@ import logging
 from flask import Flask, request
 from google.cloud import pubsub_v1
 
+
 app = Flask(__name__)
 
 
@@ -32,10 +33,10 @@ def hello_bizzabo():
 def index():
     body = request.data
     logging.warning(body)
-    publisher = pubsub_v1.PublisherClient()
-    topic_path = publisher.topic_path(
-        os.environ.get("PROJECT_NAME"), os.environ.get("TOPIC_NAME"))
-    return (body+topic_path)
+#    publisher = pubsub_v1.PublisherClient()
+#    topic_path = publisher.topic_path(
+#        os.environ.get("PROJECT_NAME"), os.environ.get("TOPIC_NAME"))
+    return (body)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
