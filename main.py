@@ -18,6 +18,7 @@ import os
 # Imports Python standard library logging
 import logging
 from flask import Flask, request
+from google.api_core.protobuf_helpers import get_messages
 from google.cloud import pubsub_v1
 
 app = Flask(__name__)
