@@ -35,7 +35,9 @@ def index():
     body = request.data
     logging.warning(body)
     publisher = pubsub_v1.PublisherClient()
-    return (body)
+    topic_path = publisher.topic_path(project_id, topic_id)
+    future = publisher.publish(topic_path, data)
+    return (future)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
