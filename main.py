@@ -18,6 +18,7 @@ import os
 # Imports Python standard library logging
 import logging
 from flask import Flask, request
+from google.cloud import pubsub_v1
 
 app = Flask(__name__)
 
@@ -31,6 +32,7 @@ def hello_bizzabo():
 def index():
     body = request.data
     logging.warning(body)
+    publisher = pubsub_v1.PublisherClient()
     return (body)
 
 if __name__ == "__main__":
