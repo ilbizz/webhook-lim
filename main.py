@@ -37,7 +37,7 @@ def index():
     publisher = pubsub_v1.PublisherClient()
     topic_path = publisher.topic_path(project_id, topic_id)
     future = publisher.publish(topic_path, body)
-    return (future.result)
+    return (future.result())
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
