@@ -36,7 +36,7 @@ def index():
     logging.warning(body)
     publisher = pubsub_v1.PublisherClient()
     topic_path = publisher.topic_path(project_id, topic_id)
-    future = publisher.publish(topic_path, data)
+    future = publisher.publish(topic_path, body)
     return (future)
 
 if __name__ == "__main__":
