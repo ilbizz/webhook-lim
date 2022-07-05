@@ -19,6 +19,7 @@ import os
 import logging
 from flask import Flask, request
 from google.cloud import pubsub_v1
+from sys import getsizeof
 
 app = Flask(__name__)
 
@@ -34,6 +35,9 @@ def index():
     topic_id = "lim-test-topic"
     body = request.data
     logging.warning(body)
+    logging.warning("length="+len(body))
+    logging.warning("size="+getsizeof(body))
+    #add message size in chars and mgb
     publisher = pubsub_v1.PublisherClient()
     topic_path = publisher.topic_path(project_id, topic_id)
     future = publisher.publish(topic_path, body)
