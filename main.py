@@ -35,8 +35,8 @@ def index():
     topic_id = "lim-test-topic"
     body = request.data
     logging.warning(body)
-    logging.warning("length="+len(body))
-    logging.warning("size="+getsizeof(body))
+    logging.warning("length="+str(len(body)))
+    logging.warning("size="+str(getsizeof(body)))
     #add message size in chars and mgb
     publisher = pubsub_v1.PublisherClient()
     topic_path = publisher.topic_path(project_id, topic_id)
